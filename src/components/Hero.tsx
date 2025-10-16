@@ -1,4 +1,4 @@
-import HeroImg from "../assets/images/heroimg.png";
+// import HeroImg from "../assets/images/heroImg.png";
 import { Link } from "react-scroll";
 
 const Hero = () => {
@@ -32,7 +32,7 @@ const Hero = () => {
         </div>
         {/* <div className="w-fit mx-auto"> */}
         <img
-          src={HeroImg}
+          src="/heroImg.png"
           className="w-[500px] h-[500px] mx-auto rounded-2xl"
           alt="Hero Image"
         />
