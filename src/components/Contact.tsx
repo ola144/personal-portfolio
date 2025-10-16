@@ -1,8 +1,90 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useRef, useState } from "react";
+import emailjs from "emailjs-com";
 import Title from "./Title";
 
 const Contact = () => {
   const descprition =
     "Ready to get started? Feel free to reach out through the contact form, and let's embark on a journey of innovation and success.";
+
+  const contactForm = useRef<HTMLFormElement | null>(null);
+
+  const [msg, setMsg] = useState({
+    success: "",
+    error: "",
+  });
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const validate = () => {
+    const form = contactForm.current;
+    const newErrors = { name: "", email: "", message: "" };
+
+    if (!form) return false;
+
+    const name = form.querySelector('input[name="name"]') as HTMLInputElement;
+    const email = form.querySelector('input[name="email"]') as HTMLInputElement;
+    const message = form.querySelector(
+      'textarea[name="message"]'
+    ) as HTMLInputElement;
+
+    if (!name?.value.trim()) {
+      newErrors.name = "Full name is required";
+    }
+    if (!message?.value.trim()) {
+      newErrors.message = "Message is required";
+    }
+    if (
+      !email?.value.trim() ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email?.value)
+    ) {
+      newErrors.email = "Valid email is required";
+    }
+
+    setErrors(newErrors);
+
+    const isValid = Object.values(newErrors).every((error) => error === "");
+    return isValid;
+  };
+
+  const handleSendMsg = (e: any) => {
+    e.preventDefault();
+
+    // if (!contactForm.current) return;
+    console.log(e);
+    if (!validate()) return;
+
+    setLoading(true);
+
+    emailjs
+      .sendForm(
+        "service_3qcsvax",
+        "template_hcr632k",
+        contactForm.current!,
+        "eBMzf3NK0d_zG7aiL"
+      )
+      .then((_res) => {
+        setMsg((prev: any) => ({
+          ...prev,
+          success: "Message sent successfully. You will hear from me soon!",
+        }));
+      })
+      .catch((_err) => {
+        setMsg((prev: any) => ({
+          ...prev,
+          error: "Something went wrong. Please try again!",
+        }));
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
 
   return (
     <section className="parent parent2">
@@ -77,37 +159,33 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="w-full h-[420px]">
-            <form action="">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
-                <div className="my-2 w-full">
-                  <label
-                    htmlFor="firstName"
-                    className="text-gray-500 font-normal text-sm"
-                  >
-                    First Name
-                  </label>
-                  <input
-                    type="text"
-                    id="firstName"
-                    className="w-full outline-none border-b-2 border-gray-400 text-gray-400 placeholder:text-gray-400 focus:border-black pb-2 pt-1"
-                    placeholder="eg. Lucas"
-                  />
-                </div>
-                <div className="my-2 w-full">
-                  <label
-                    htmlFor="lastName"
-                    className="text-gray-500 font-normal text-sm"
-                  >
-                    Last Name
-                  </label>
-                  <input
-                    type="text"
-                    id="lastName"
-                    className="w-full outline-none border-b-2 border-gray-400 text-gray-400 placeholder:text-gray-400 focus:border-black pb-2 pt-1"
-                    placeholder="eg. Jones"
-                  />
-                </div>
+          <div
+            className={`w-full ${
+              errors.name.length > 0 ||
+              errors.email.length > 0 ||
+              errors.message.length > 0
+                ? "h-[450px]"
+                : "h-[420px]"
+            }`}
+          >
+            <form ref={contactForm}>
+              <div className="my-2 w-full">
+                <label
+                  htmlFor="firstName"
+                  className="text-gray-500 font-normal text-sm"
+                >
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="name"
+                  className="w-full outline-none border-b-2 border-gray-400 text-gray-400 placeholder:text-gray-400 focus:border-black pb-2 pt-1"
+                  placeholder="eg. Lucas Jones"
+                />
+                {errors.name && (
+                  <p className="text-red-500 text-sm">{errors.name}</p>
+                )}
               </div>
               <div className="my-2 w-full">
                 <label
@@ -119,9 +197,13 @@ const Contact = () => {
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   className="w-full outline-none border-b-2 border-gray-400 text-gray-400 placeholder:text-gray-400 focus:border-black pb-2 pt-1"
                   placeholder="eg. lucas@gmail.com"
                 />
+                {errors.email && (
+                  <p className="text-red-500 text-sm">{errors.email}</p>
+                )}
               </div>
               <div className="my-2 w-full">
                 <label
@@ -132,12 +214,31 @@ const Contact = () => {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   className="w-full outline-none border-b-2 border-gray-400 text-gray-400 placeholder:text-gray-400 focus:border-black pb-1 pt-1 resize-none"
                 ></textarea>
+                {errors.message && (
+                  <p className="text-red-500 text-sm">{errors.message}</p>
+                )}
               </div>
+              {msg.error && (
+                <p className="text-red-500 text-sm text-center">{msg.error}</p>
+              )}
+              {msg.success && (
+                <p className="text-green-500 text-sm text-center">
+                  {msg.success}
+                </p>
+              )}
               <div className="my-2 w-full flex justify-end">
-                <button className="bg-black text-white uppercase w-fit px-4 py-2 font-bold text-sm rounded-lg">
-                  send message
+                <button
+                  className={`bg-black text-white uppercase w-fit px-4 py-2 font-bold text-sm rounded-lg ${
+                    loading === true ? "cursor-no-drop" : ""
+                  }`}
+                  type="button"
+                  onClick={(e) => handleSendMsg(e)}
+                  disabled={loading === true}
+                >
+                  {loading === false ? "send message" : "sending.."}
                 </button>
               </div>
             </form>

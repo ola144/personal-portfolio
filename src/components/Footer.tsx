@@ -54,7 +54,8 @@ const Footer = () => {
             Contact
           </Link>
           <a
-            href="#"
+            href="https://github.com/ola144/personal-portfolio"
+            target="_blank"
             className="cursor-pointer text-white bg-black w-fit py-2 px-3 font-bold rounded-lg hover:bg-gray-500 block text-xs"
           >
             <i className="fa fa-github"></i> View On Github
