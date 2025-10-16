@@ -32,7 +32,7 @@ const Hero = () => {
         </div>
         {/* <div className="w-fit mx-auto"> */}
         <img
-          src="/heroImg.png"
+          src="/images/heroImg.png"
           className="w-[500px] h-[500px] mx-auto rounded-2xl"
           alt="Hero Image"
         />

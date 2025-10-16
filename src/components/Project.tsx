@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import Title from "./Title";
 import { projectList, type IProject } from "../model/projects";
 
-import busBooking from "../assets/images/busBooking-app.jpg";
-import taskApp from "../assets/images/task-app.jpg";
-import onlineShop from "../assets/images/online-shop.jpg";
+// import busBooking from "/images/busBooking-app.jpg";
+// import taskApp from "/images/task-app.jpg";
+// import onlineShop from "/images/online-shop.jpg";
 
 const Project = () => {
   const descprition =
@@ -25,21 +25,21 @@ const Project = () => {
             <div key={index} className="w-full h-fit">
               {project.type === "shop" && (
                 <img
-                  src={onlineShop}
+                  src="/images/online-shop.JPG"
                   alt={project.title}
                   className="w-full lg:h-[40%] md:h-[200px] rounded-xl mb-5"
                 />
               )}
               {project.type === "task" && (
                 <img
-                  src={taskApp}
+                  src="/images/task-app.JPG"
                   alt={project.title}
                   className="w-full h-[40%] md:h-[200px] rounded-xl mb-5"
                 />
               )}
               {project.type === "bus" && (
                 <img
-                  src={busBooking}
+                  src="/images/busBooking-app.JPG"
                   alt={project.title}
                   className="w-full h-[40%] md:h-[200px] rounded-xl mb-5"
                 />
