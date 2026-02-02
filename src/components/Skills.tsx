@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import Title from "./Title";
 import { skillList, type ISkills } from "../model/skills";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const Skills = () => {
   const descprition =
@@ -12,12 +14,32 @@ const Skills = () => {
     setSkills(skillList);
   }, []);
 
+  useGSAP(() => {
+    const scrollTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#skill",
+        start: "top center",
+      },
+    });
+
+    scrollTimeline.to(
+      ".skill-grid div",
+      {
+        opacity: 0,
+        duration: 1,
+        ease: "power1.inOut",
+        stagger: 0.4,
+      },
+      "<"
+    );
+  });
+
   return (
-    <section className="parent parent2">
+    <section className="parent parent2" id="skill">
       <Title title1="my skills" title2="what i do" decscription={descprition} />
 
       <div className="">
-        <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1  gap-x-16 gap-y-10 w-full">
+        <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-x-16 gap-y-10 w-full skill-grid">
           {skills.map((skill, index) => (
             <div key={index} className="text-center w-full">
               <div className="w-11 h-11 mx-auto text-white bg-black rounded-full p-4 mb-5 flex items-center justify-center text-xl">

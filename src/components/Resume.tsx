@@ -4,16 +4,16 @@ import ResumeDoc from "../assets/documents/AGBAJE OLADIMEJI GBOLAHAN CV.pdf";
 const Resume = () => {
   const experience = [
     {
-      role: "Volunteer Frontend Developer",
+      role: "Frontend Developer",
       company: "The Mirror LLC",
-      period: "August, 2025 - Present",
+      period: "August, 2025 - Till Date",
       description:
         "Collaborated with developers to implement UI features and optimized website performance using Angular, TailwindCSS, and REST APIs.",
     },
     {
       role: "Frontend Developer Intern",
       company: "FlexiSAF Edusoft Limited",
-      period: "September, 2025 - Present",
+      period: "September, 2025 - December, 2025",
       description:
         "Completed a training-based internship program focused on frontend development, where I received mentorship, practiced building UI components, and worked on supervised mini-projects to strengthen real-world skills.",
     },

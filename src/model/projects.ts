@@ -21,10 +21,10 @@ export const projectList: IProject[] = [
     liveUrl: "https://task-app-three-pi.vercel.app/",
   },
   {
-    title: "Bus Booking App (Angular + TailwindCSS)",
+    title: "The Mirror (Mentorship Platform)",
     description:
-      "A modern bus booking platform built with Angular and styled using TailwindCSS. The app allows users to search available routes, select travel dates, view seat availability, and book tickets seamlessly. It features a clean and responsive interface, dynamic form validation, and structured state management using Angular services. Designed with a user-friendly flow to make ticket reservations quick and intuitive.",
-    type: "bus",
-    liveUrl: "https://bus-booking-application.vercel.app/",
+      "A full-featured mentorship web application developed with Angular and Tailwind CSS, consuming a RESTful API for authentication, session management, and user data. Emphasis was placed on component reusability, clean architecture, and responsive UI design.",
+    type: "mirror",
+    liveUrl: "https://themirrorllc.com/home",
   },
 ];

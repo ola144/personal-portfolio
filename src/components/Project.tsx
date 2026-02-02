@@ -37,9 +37,9 @@ const Project = () => {
                   className="w-full h-[40%] md:h-[200px] rounded-xl mb-5"
                 />
               )}
-              {project.type === "bus" && (
+              {project.type === "mirror" && (
                 <img
-                  src="/images/busBooking-app.JPG"
+                  src="/images/mirror-project.JPG"
                   alt={project.title}
                   className="w-full h-[40%] md:h-[200px] rounded-xl mb-5"
                 />
