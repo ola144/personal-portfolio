@@ -41,7 +41,6 @@ const Hero = () => {
         opacity: 1,
         duration: 1,
         ease: "power1.inOut",
-        rotation: 360,
         borderRadius: "10%",
         // repeat: 1,
       }
