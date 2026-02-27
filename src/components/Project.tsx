@@ -1,122 +1,96 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Title from "./Title";
 import { projectList, type IProject } from "../model/projects";
-import { tns, type TinySliderInstance } from "tiny-slider";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper/types";
 
 const Project = () => {
   const descprition =
     "Whether you have a design idea that needs to come to life or a website that requires a facelift, I'm here to turn your digital dreams into reality.";
 
   const [projects, setProjects] = useState<IProject[]>([]);
-  const sliderRef = useRef(null);
-  const sliderInstance = useRef<TinySliderInstance | null>(null);
+  const swiperRef = useRef<SwiperType | null>(null);
 
   useEffect(() => {
     setProjects(projectList);
-
-    if (!sliderRef.current) return;
-
-    sliderInstance.current = tns({
-      container: sliderRef.current,
-      items: 3,
-      gutter: 10,
-      slideBy: 1,
-      autoplay: false,
-      autoplayTimeout: 3000,
-      autoplayButtonOutput: false,
-
-      controls: true, // arrows
-      controlsText: ["←", "→"],
-
-      nav: true, // 👈 pagination dots
-      navPosition: "bottom",
-
-      mouseDrag: true,
-      touch: true,
-
-      loop: true,
-
-      responsive: {
-        0: { items: 1 },
-        640: { items: 2 },
-        1024: { items: 3 },
-      },
-    });
-
-    return () => {
-      if (sliderInstance.current) {
-        sliderInstance.current.destroy();
-      }
-    };
   }, []);
-
-  // const initializeSlider = () => {
-  //   if (!sliderRef.current) return;
-
-  // };
-
-  //  pauseSlider() {
-  //   this.slideInstance?.pause();
-  // }
-
-  // playSlider() {
-  //   this.slideInstance?.play();
-  // }
 
   return (
     <section className="parent parent2">
       <Title title1="" title2="my projects" decscription={descprition} />
 
-      <div className="flex gap-1 relative w-full" ref={sliderRef}>
-        {/* <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1  gap-x-8 gap-y-10 w-full"> */}
+      <Swiper
+        modules={[Navigation, Pagination, Autoplay]}
+        onSwiper={(swiper) => (swiperRef.current = swiper)}
+        spaceBetween={20}
+        slidesPerView={1}
+        navigation
+        pagination={{ clickable: true }}
+        loop
+        autoplay={{
+          delay: 3000,
+        }}
+        breakpoints={{
+          0: { slidesPerView: 1 },
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        }}
+        onMouseEnter={() => swiperRef.current?.autoplay.stop()}
+        onMouseLeave={() => swiperRef.current?.autoplay.start()}
+      >
         {projects.map((project, index) => (
-          <div key={index} className="w-full h-fit">
-            {project.type === "shop" && (
-              <img
-                src="/images/online-shop.JPG"
-                alt={project.title}
-                className="w-full lg:h-[40%] md:h-[200px] rounded-xl mb-5"
-              />
-            )}
-            {project.type === "exlusive" && (
-              <img
-                src="/images/exclusive-landing.JPG"
-                alt={project.title}
-                className="w-full lg:h-[40%] md:h-[200px] rounded-xl mb-5"
-              />
-            )}
-            {project.type === "task" && (
-              <img
-                src="/images/task-app.JPG"
-                alt={project.title}
-                className="w-full h-[40%] md:h-[200px] rounded-xl mb-5"
-              />
-            )}
-            {project.type === "mirror" && (
-              <img
-                src="/images/mirror-project.JPG"
-                alt={project.title}
-                className="w-full h-[40%] md:h-[200px] rounded-xl mb-5"
-              />
-            )}
+          <SwiperSlide key={index}>
+            <div className="w-full h-fit flex flex-col gap-1">
+              {project.type === "shop" && (
+                <img
+                  src="/images/online-shop.JPG"
+                  alt={project.title}
+                  className="w-full lg:h-[40%] md:h-[200px] rounded-xl"
+                />
+              )}
+              {project.type === "exlusive" && (
+                <img
+                  src="/images/exclusive-landing.JPG"
+                  alt={project.title}
+                  className="w-full lg:h-[40%] md:h-[200px] rounded-xl"
+                />
+              )}
+              {project.type === "task" && (
+                <img
+                  src="/images/task-app.JPG"
+                  alt={project.title}
+                  className="w-full h-[40%] md:h-[200px] rounded-xl"
+                />
+              )}
+              {project.type === "mirror" && (
+                <img
+                  src="/images/mirror-project.JPG"
+                  alt={project.title}
+                  className="w-full h-[40%] md:h-[200px] rounded-xl"
+                />
+              )}
 
-            <h1 className="text-gray-800 font-bold md:text-lg text-sm mb-5 capitalize">
-              {project.title}
-            </h1>
-            <p className="md:text-sm text-xs leading-normal text-gray-400 font-normal text-justify mb-5">
-              {project.description}
-            </p>
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              className="bg-black w-fit py-2 px-3 text-white uppercase text-sm rounded-lg"
-            >
-              take a look at live demo
-            </a>
-          </div>
+              <h1 className="text-gray-800 font-bold md:text-lg text-sm capitalize">
+                {project.title}
+              </h1>
+              <p className="md:text-sm text-xs leading-normal text-gray-400 font-normal text-justify">
+                {project.description}
+              </p>
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                className="bg-black w-fit py-2 px-3 text-white uppercase text-sm rounded-lg"
+              >
+                take a look at live demo
+              </a>
+            </div>
+          </SwiperSlide>
         ))}
-        {/* </div> */}
-      </div>
+      </Swiper>
     </section>
   );
 };
