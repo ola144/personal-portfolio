@@ -15,12 +15,16 @@ const Project = () => {
   const [projects, setProjects] = useState<IProject[]>([]);
   const swiperRef = useRef<SwiperType | null>(null);
 
+  const openProject = (url: string) => {
+    window.open(url, "_blank");
+  };
+
   useEffect(() => {
     setProjects(projectList);
   }, []);
 
   return (
-    <section className="parent parent2">
+    <section className="parent parent2 h-full">
       <Title title1="" title2="my projects" decscription={descprition} />
 
       <Swiper
@@ -44,7 +48,7 @@ const Project = () => {
       >
         {projects.map((project, index) => (
           <SwiperSlide key={index}>
-            <div className="w-full h-fit flex flex-col gap-1">
+            <div className="w-full h-full flex flex-col gap-1">
               {project.type === "shop" && (
                 <img
                   src="/images/online-shop.JPG"
@@ -80,13 +84,12 @@ const Project = () => {
               <p className="md:text-sm text-xs leading-normal text-gray-400 font-normal text-justify">
                 {project.description}
               </p>
-              <a
-                href={project.liveUrl}
-                target="_blank"
+              <button
                 className="bg-black w-fit py-2 px-3 text-white uppercase text-sm rounded-lg"
+                onClick={() => openProject(project.liveUrl)}
               >
                 take a look at live demo
-              </a>
+              </button>
             </div>
           </SwiperSlide>
         ))}
