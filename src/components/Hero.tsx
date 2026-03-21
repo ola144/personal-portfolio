@@ -43,14 +43,14 @@ const Hero = () => {
         ease: "power1.inOut",
         borderRadius: "10%",
         // repeat: 1,
-      }
+      },
     );
   });
 
   return (
     <section className="parent" id="hero">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-10 items-start mx-auto w-fit">
-        <div className="mx-auto w-fit lg:pl-10 md:mt-10 mt-0">
+        <div className="mx-auto md:w-fit lg:pl-10 md:mt-10 mt-0 w-full">
           <h1
             className="capitalize xl:text-6xl lg:text-4xl md:text-4xl sm:text-xl text-xl font-bold text-gray-800 mb-5 w-full text-center md:text-left"
             id="title"
@@ -59,7 +59,7 @@ const Hero = () => {
             development
             <br className="hidden lg:block" /> portfolio!
           </h1>
-          <p className="text-gray-400 md:text-xl sm:text-lg text-sm font-normal leading-normal text-justify">
+          <p className="text-gray-400 md:text-xl sm:text-lg text-sm font-normal leading-normal text-justify w-full">
             I'm <b>Oladimeji Agbaje</b>, a passionate frontend developer based
             in Nigeria. Here, you'll get a glimpse of my journey in the world of
             web development, where creativity meets functionality.
