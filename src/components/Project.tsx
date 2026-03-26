@@ -77,6 +77,13 @@ const Project = () => {
                   className="w-full h-[40%] md:h-[200px] rounded-xl"
                 />
               )}
+              {project.type === "marent" && (
+                <img
+                  src="/images/marent.JPG"
+                  alt={project.title}
+                  className="w-full h-[40%] md:h-[200px] rounded-xl"
+                />
+              )}
 
               <h1 className="text-gray-800 font-bold md:text-lg text-sm capitalize">
                 {project.title}

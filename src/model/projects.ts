@@ -34,4 +34,11 @@ export const projectList: IProject[] = [
     type: "mirror",
     liveUrl: "https://themirrorllc.com/home",
   },
+  {
+    title: "Car Booking Web App",
+    description:
+      "A modern car booking web application built with React, Redux, TailwindCSS, and Firebase, featuring real-time bookings, secure authentication, and a responsive user experience.",
+    type: "marent",
+    liveUrl: "https://marent.vercel.app/",
+  },
 ];
