@@ -1,42 +1,60 @@
 import { useEffect, useRef, useState } from "react";
+import { NavLink } from "react-router-dom";
 import { Link } from "react-scroll";
 
 const Header = () => {
   const navRef = useRef<HTMLElement>(null);
   const smallNavRef = useRef<HTMLUListElement>(null);
   const nav2Ref = useRef<HTMLDivElement>(null);
+  const shadow = useRef<HTMLDivElement>(null);
   const [hideCloseIcon, setHideCloseIcon] = useState<boolean>(false);
 
   useEffect(() => {
-    document.addEventListener("scroll", () => {
-      if (scrollY > 0) {
-        navRef.current?.classList.add("scrollBg");
-        nav2Ref.current?.classList.add("scrollBg");
+    const onScroll = () => {
+      if (window.scrollY > 10) {
+        navRef.current?.classList.add("backdrop-blur-xl", "bg-slate-950/80");
+        nav2Ref.current?.classList.add("backdrop-blur-xl", "bg-slate-950/90");
       } else {
-        navRef.current?.classList.remove("scrollBg");
-        nav2Ref.current?.classList.remove("scrollBg");
+        navRef.current?.classList.remove("backdrop-blur-xl", "bg-slate-950/80");
+        nav2Ref.current?.classList.remove(
+          "backdrop-blur-xl",
+          "bg-slate-950/90",
+        );
       }
-    });
+    };
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const handleToggleNav = () => {
-    if (hideCloseIcon === false) {
-      smallNavRef.current?.classList.toggle("toggleNav");
-      setHideCloseIcon(true);
+    if (
+      smallNavRef.current?.classList.contains("translate-y-[-150%]") &&
+      shadow.current?.classList.contains("hidden")
+    ) {
+      smallNavRef.current?.classList.add("-translate-y-5");
+      smallNavRef.current?.classList.remove("translate-y-[-150%]");
+      shadow.current?.classList.add("block");
+      shadow.current?.classList.remove("hidden");
     } else {
-      smallNavRef.current?.classList.toggle("toggleNav");
-      setHideCloseIcon(false);
+      smallNavRef.current?.classList.remove("-translate-y-5");
+      smallNavRef.current?.classList.add("translate-y-[-150%]");
+      shadow.current?.classList.add("hidden");
+      shadow.current?.classList.remove("block");
     }
+
+    setHideCloseIcon((prev) => !prev);
   };
 
   return (
     <>
       <nav
-        className="parent py-5 fixed top-0 left-0 z-50 hidden md:block"
+        className="parent fixed top-0 left-0 z-50 hidden w-full md:block py-3"
         ref={navRef}
       >
-        <div className="flex justify-between items-center">
+        <div className="flex items-center justify-between">
           <Link
+            activeClass="border-0"
             to="hero"
             smooth={true}
             spy={true}
@@ -44,10 +62,14 @@ const Header = () => {
             offset={-100}
             className="cursor-pointer"
           >
-            <h1 className="text-black font-extrabold text-2xl">OlaTech</h1>
+            <img
+              src="public/images/logo2.png"
+              alt="logo"
+              className="w-14 rounded-full"
+            />
           </Link>
 
-          <ul className="flex gap-5 text-black font-bold text-lg menu">
+          <div className="flex items-center gap-10 text-sm font-semibold text-slate-200">
             <Link
               activeClass="active"
               to="hero"
@@ -55,9 +77,20 @@ const Header = () => {
               spy={true}
               duration={500}
               offset={-100}
-              className="cursor-pointer"
+              className="cursor-pointer transition hover:text-white"
             >
-              <i className="fa fa-home"></i> Home
+              Home
+            </Link>
+            <Link
+              activeClass="active"
+              to="projects"
+              smooth={true}
+              spy={true}
+              duration={500}
+              offset={-70}
+              className="cursor-pointer transition hover:text-white"
+            >
+              Projects
             </Link>
             <Link
               activeClass="active"
@@ -66,23 +99,10 @@ const Header = () => {
               spy={true}
               duration={500}
               offset={-70}
-              className="cursor-pointer"
+              className="cursor-pointer transition hover:text-white"
             >
-              <i className="fa fa-code"></i> Skills
+              Skills
             </Link>
-            <Link
-              activeClass="active"
-              to="projects"
-              smooth={true}
-              spy={true}
-              duration={500}
-              offset={-60}
-              className="cursor-pointer"
-            >
-              <i className="fa fa-tasks"></i> Projects
-            </Link>
-          </ul>
-          <div className="">
             <Link
               activeClass="active"
               to="contact"
@@ -90,105 +110,128 @@ const Header = () => {
               spy={true}
               duration={500}
               offset={-70}
-              className="cursor-pointer text-white bg-black w-fit py-2 px-3 font-bold rounded-lg hover:bg-gray-500"
+              className="cursor-pointer transition hover:text-white"
             >
-              <i className="fa fa-address-book"></i> Contact
+              Contact
             </Link>
           </div>
+
+          <Link
+            to="contact"
+            smooth={true}
+            spy={true}
+            duration={500}
+            offset={-70}
+            className="inline-flex items-center rounded-full bg-violet-500 px-5 py-2 text-sm font-semibold text-white transition hover:bg-violet-400 cursor-pointer"
+          >
+            Let’s Talk
+          </Link>
         </div>
       </nav>
 
-      <nav className="w-full  fixed top-0 left-0 z-[500] md:hidden ">
+      <nav className="w-full fixed top-0 left-0 z-[600] md:hidden">
         <div
-          className="block justify-between items-center  sm:px-10 px-5 py-3"
+          className="flex items-center justify-between sm:px-10 px-5  text-white"
           ref={nav2Ref}
         >
           <Link
+          activeClass="border-0"
             to="hero"
             smooth={true}
             spy={true}
             duration={500}
             offset={-100}
-            className="cursor-pointer "
+            className="cursor-pointer"
           >
-            <h1 className="text-black font-extrabold text-2xl">OlaTech</h1>
+            <img
+              src="public/images/logo2.png"
+              alt="logo"
+              className="w-14 rounded-full"
+            />
           </Link>
 
-          <ul
-            className="block gap-5 text-black font-bold text-lg absolute -top-60 left-0 w-full -z-40  bg-white sm:px-10 px-5 pb-5 transition-all ease-in-out duration-700"
-            ref={smallNavRef}
+          <button
+            className="text-white text-2xl"
+            onClick={() => handleToggleNav()}
+            aria-label="Toggle navigation"
           >
-            <div className="block relative">
-              <Link
-                activeClass="active"
-                to="hero"
-                smooth={true}
-                spy={true}
-                duration={500}
-                offset={-100}
-                className="cursor-pointer block my-4 border-t-[1px] border-gray-700 pt-2"
-                onClick={() => handleToggleNav()}
-              >
-                <i className="fa fa-home"></i> Home
-              </Link>
-              <Link
-                activeClass="active"
-                to="skills"
-                smooth={true}
-                spy={true}
-                duration={500}
-                offset={-70}
-                className="cursor-pointer block my-4"
-                onClick={() => handleToggleNav()}
-              >
-                <i className="fa fa-code"></i> Skills
-              </Link>
-              <Link
-                activeClass="active"
-                to="projects"
-                smooth={true}
-                spy={true}
-                duration={500}
-                offset={-60}
-                className="cursor-pointer block my-4"
-                onClick={() => handleToggleNav()}
-              >
-                <i className="fa fa-tasks"></i> Projects
-              </Link>
-              <Link
-                activeClass="active"
-                to="contact"
-                smooth={true}
-                spy={true}
-                duration={500}
-                offset={-70}
-                className="cursor-pointer text-white bg-black w-fit py-2 px-3 font-bold rounded-lg hover:bg-gray-500 block my-4"
-                onClick={() => handleToggleNav()}
-              >
-                <i className="fa fa-address-book"></i> Contact
-              </Link>
-            </div>
-          </ul>
-
-          {hideCloseIcon ? (
-            <i
-              className="fa fa-times navIcon"
-              onClick={() => handleToggleNav()}
-            ></i>
-          ) : (
-            <i
-              className="fa fa-navicon  navIcon"
-              onClick={() => handleToggleNav()}
-            ></i>
-          )}
+            {hideCloseIcon ? (
+              <i className="fa fa-times"></i>
+            ) : (
+              <i className="fa fa-bars"></i>
+            )}
+          </button>
         </div>
-      </nav>
-      {hideCloseIcon && (
+
+        <ul
+          className="absolute left-0 right-0 top-20 translate-y-[-150%] bg-slate-950/95 px-5 py-6 text-slate-200 transition-transform duration-500 h-fit z-[-500]"
+          ref={smallNavRef}
+        >
+          {/* absolute left-0 right-0 top-20 translate-y-[-100%]*/}
+          <li className="border-b border-white/10 pb-4 mb-4">
+            <Link
+              activeClass="text-white"
+              to="hero"
+              smooth={true}
+              spy={true}
+              duration={500}
+              offset={-100}
+              className="block text-lg font-semibold transition hover:text-white cursor-pointer"
+              onClick={handleToggleNav}
+            >
+              Home
+            </Link>
+          </li>
+          <li className="border-b border-white/10 pb-4 mb-4">
+            <Link
+              activeClass="text-white"
+              to="projects"
+              smooth={true}
+              spy={true}
+              duration={500}
+              offset={-70}
+              className="block text-lg font-semibold transition hover:text-white cursor-pointer"
+              onClick={handleToggleNav}
+            >
+              Projects
+            </Link>
+          </li>
+          <li className="border-b border-white/10 pb-4 mb-4">
+            <Link
+              activeClass="text-white"
+              to="skills"
+              smooth={true}
+              spy={true}
+              duration={500}
+              offset={-70}
+              className="block text-lg font-semibold transition hover:text-white cursor-pointer"
+              onClick={handleToggleNav}
+            >
+              Skills
+            </Link>
+          </li>
+          <li>
+            <Link
+              activeClass="text-white"
+              to="contact"
+              smooth={true}
+              spy={true}
+              duration={500}
+              offset={-70}
+              className="block rounded-full bg-violet-500 px-4 py-3 text-center font-semibold text-white transition hover:bg-violet-400 cursor-pointer"
+              onClick={handleToggleNav}
+            >
+              Contact
+            </Link>
+          </li>
+        </ul>
+
         <div
-          onClick={() => handleToggleNav()}
-          className="fixed top-0 left-0 md:hidden block bg-black/5 w-full h-screen"
+          ref={shadow}
+          className="fixed inset-0 bg-black/50 z-[-600] hidden transition-colors duration-500"
+          onClick={handleToggleNav}
         ></div>
-      )}
+      </nav>
     </>
   );
 };

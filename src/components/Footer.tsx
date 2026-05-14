@@ -2,63 +2,64 @@ import { Link } from "react-scroll";
 
 const Footer = () => {
   return (
-    <footer className="parent parent2 border-t-2 border-gray-400 py-8">
-      <div className="flex items-center flex-wrap lg:flex-nowrap lg:justify-between justify-center gap-y-5">
-        <p className="text-gray-400 font-normal sm:text-sm text-xs sm:text-left text-center">
+    <footer className="parent parent2 border-t border-white/10 py-10 text-slate-400">
+      <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+        <p className="text-center text-sm lg:text-left">
           © {new Date().getFullYear()} Developed with ReactJS and TailwindCSS by
           Creative OlaTech.
         </p>
-        <div className="flex items-center gap-3 text-gray-400 font-bold sm:text-sm text-xs">
+        <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-slate-300">
           <Link
-            activeClass="active"
+            activeClass="border-0"
             to="hero"
             smooth={true}
             spy={true}
             duration={500}
             offset={-100}
-            className="hover:text-gray-500 transition-all duration-300 ease-in-out cursor-pointer"
+            className="transition hover:text-white cursor-pointer"
           >
             Home
           </Link>
           <Link
-            activeClass="active"
+           activeClass="border-0"
+            to="projects"
+            smooth={true}
+            spy={true}
+            duration={500}
+            offset={-70}
+            className="transition hover:text-white cursor-pointer"
+          >
+            Projects
+          </Link>
+          <Link
+           activeClass="border-0"
             to="skills"
             smooth={true}
             spy={true}
             duration={500}
             offset={-70}
-            className="hover:text-gray-500 transition-all duration-300 ease-in-out cursor-pointer "
+            className="transition hover:text-white cursor-pointer"
           >
             Skills
           </Link>
           <Link
-            activeClass="active"
-            to="projects"
-            smooth={true}
-            spy={true}
-            duration={500}
-            offset={-60}
-            className="hover:text-gray-500 transition-all duration-300 ease-in-out cursor-pointer"
-          >
-            Projects
-          </Link>
-          <Link
-            activeClass="active"
+           activeClass="border-0"
             to="contact"
             smooth={true}
             spy={true}
             duration={500}
             offset={-70}
-            className="hover:text-gray-500 transition-all duration-300 ease-in-out cursor-pointer"
+            className="transition hover:text-white cursor-pointer"
           >
             Contact
           </Link>
           <a
             href="https://github.com/ola144/personal-portfolio"
             target="_blank"
-            className="cursor-pointer text-white bg-black w-fit py-2 px-3 font-bold rounded-lg hover:bg-gray-500 block text-xs"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-white transition hover:border-violet-400 hover:bg-violet-500/15"
           >
-            <i className="fa fa-github"></i> View On Github
+            <i className="fa fa-github" /> View on Github
           </a>
         </div>
       </div>

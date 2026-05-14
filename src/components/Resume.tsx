@@ -27,64 +27,52 @@ const Resume = () => {
     },
   ];
 
-  const descprition =
+  const description =
     "Passionate Frontend Developer focused on building dynamic and user-friendly applications with Angular and React. Constantly improving through modern development practices and real-world project implementation.";
 
   return (
-    <section className="py-16 parent parent2 bg-gray-50 text-gray-800">
-      <Title title1="" title2="my resume" decscription={descprition} />
-      <div className="mb-12">
-        <h3 className="text-2xl font-semibold mb-4 text-gray-600">
-          Experience
-        </h3>
-        <div className="gap-5 grid md:grid-cols-2 grid-cols-1">
+    <section className="parent parent2 py-20">
+      <div className="max-w-7xl mx-auto">
+        <Title
+          title1="Work Experience"
+          title2="Where I’ve Contributed"
+          description={description}
+        />
+
+        <div className="grid gap-6 lg:grid-cols-2">
           {experience.map((item, index) => (
-            <div
-              key={index}
-              className="p-5 border-l-4 border-gray-600 bg-white shadow-sm rounded-md xl:h-[220px] lg:h-[270px] md:h-[250px] h-fit"
-            >
-              <h4 className="lg:text-xl md:text-lg sm:text-xl text-sm font-semibold">
-                {item.role} - {item.company}
-              </h4>
-              <span className="sm:text-sm text-xs text-gray-500">
+            <div key={index} className="experience-card p-8">
+              <span className="sm:text-sm text-xs uppercase tracking-[0.35em] text-violet-300/70">
                 {item.period}
               </span>
-              <p className="mt-3 text-justify text-gray-600 lg:text-lg md:text-sm text-sm">
+              <h3 className="mt-4 sm:text-2xl text-xl font-semibold text-white">
+                {item.role}
+              </h3>
+              <p className="mt-1 text-slate-400 text-sm">{item.company}</p>
+              <p className="mt-4 leading-relaxed text-slate-300 sm:text-sm text-xs text-justify">
                 {item.description}
               </p>
             </div>
           ))}
         </div>
-      </div>
 
-      <div>
-        <h3 className="text-2xl font-semibold mb-4 text-gray-600">Education</h3>
-        <div className="space-y-6">
+        <div className="mt-14 grid gap-6 lg:grid-cols-2">
           {education.map((item, index) => (
-            <div
-              key={index}
-              className="p-5 border-l-4 border-gray-600 bg-white shadow-sm rounded-md"
-            >
-              <h4 className="lg:text-xl md:text-lg sm:text-xl text-sm font-semibold">
+            <div key={index} className="experience-card p-8">
+              <h3 className="sm:text-2xl text-xl font-semibold text-white">
                 {item.degree}
-              </h4>
-              <span className="sm:text-sm text-xs text-gray-500">
-                {item.school} | {item.period}
-              </span>
+              </h3>
+              <p className="mt-2 text-slate-300 text-sm">{item.school}</p>
+              <p className="mt-4 text-slate-400 text-sm">{item.period}</p>
             </div>
           ))}
         </div>
-      </div>
 
-      {/* Download Button */}
-      <div className="text-center mt-10">
-        <a
-          href={ResumeDoc}
-          download
-          className="px-6 py-3 bg-gray-600 text-white rounded-lg shadow hover:bg-gray-700 transition-all"
-        >
-          Download Resume
-        </a>
+        <div className="mt-12 flex flex-col items-center text-center">
+          <a href={ResumeDoc} download className="btn-primary">
+            Download Resume
+          </a>
+        </div>
       </div>
     </section>
   );
