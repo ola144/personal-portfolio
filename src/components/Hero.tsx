@@ -45,11 +45,11 @@ const Hero = () => {
               Focused on performance, accessibility, and clean design
             </span>
 
-            <h1 className="text-2xl sm:text-6xl lg:text-7xl font-semibold leading-tight text-white">
+            <h1 className="sm:text-4xl text-2xl md:text-6xl lg:text-7xl font-semibold leading-tight text-white">
               I’m a Software Engineer
             </h1>
 
-            <p className="max-w-3xl text-sm sm:text-xl leading-relaxed text-slate-300">
+            <p className="max-w-3xl text-sm md:text-xl sm:text-lg leading-relaxed text-slate-300">
               I build elegant, high-performance web applications with React,
               Angular, and Tailwind CSS. My focus is on polished interfaces,
               seamless interactions, and scalable digital products.
@@ -83,27 +83,27 @@ const Hero = () => {
                 <p className="text-sm uppercase tracking-[0.3em] text-slate-400">
                   Experience
                 </p>
-                <p className="mt-3 sm:text-3xl text-xl font-semibold text-white">2 yrs</p>
+                <p className="mt-3 md:text-3xl text-xl font-semibold text-white">2 yrs</p>
               </div>
               <div className="experience-card p-5 text-center">
                 <p className="text-sm uppercase tracking-[0.3em] text-slate-400">
                   Projects
                 </p>
-                <p className="mt-3 sm:text-3xl text-xl font-semibold text-white">5+</p>
+                <p className="mt-3 md:text-3xl text-xl font-semibold text-white">5+</p>
               </div>
               <div className="experience-card p-5 text-center">
                 <p className="text-sm uppercase tracking-[0.3em] text-slate-400">
                   Focus
                 </p>
-                <p className="mt-3 sm:text-3xl text-xl font-semibold text-white">
+                <p className="mt-3 md:text-3xl text-xl font-semibold text-white">
                   Frontend
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-[0_35px_120px_rgba(31,41,55,0.32)] backdrop-blur-2xl">
-            <div className="relative overflow-hidden rounded-[1.8rem] border border-white/10 bg-slate-950/80 p-6">
+          <div className="rounded-[2rem] border border-white/10 bg-white/5 md:p-6 p-3 shadow-[0_35px_120px_rgba(31,41,55,0.32)] backdrop-blur-2xl">
+            <div className="relative overflow-hidden rounded-[1.8rem] border border-white/10 bg-slate-950/80 md:p-6 p-3">
               <img
                 src="/images/heroImg.png"
                 alt="Hero"
@@ -111,8 +111,8 @@ const Hero = () => {
                 className="h-full w-full rounded-[1.4rem] object-cover"
               />
               <div className="absolute inset-x-0 bottom-0 rounded-b-[1.4rem] bg-gradient-to-t from-slate-950/90 to-transparent px-6 py-5 text-white">
-                <p className="text-sm text-slate-300 font-bold">Frontend Engineer</p>
-                <h2 className="sm:text-2xl text-xl font-semibold">
+                <p className="sm:text-sm text-xs text-slate-300 font-bold">Frontend Engineer</p>
+                <h2 className="md:text-2xl sm:text-xl text-lg font-semibold">
                   Design-driven solutions
                 </h2>
               </div>

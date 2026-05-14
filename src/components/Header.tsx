@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-scroll";
 
+import Logo from "/images/logo2.png";
+
 const Header = () => {
   const navRef = useRef<HTMLElement>(null);
   const smallNavRef = useRef<HTMLUListElement>(null);
@@ -62,7 +64,7 @@ const Header = () => {
             className="cursor-pointer"
           >
             <img
-              src="public/images/logo2.png"
+              src={Logo}
               alt="logo"
               className="w-14 rounded-full"
             />
@@ -143,7 +145,7 @@ const Header = () => {
             className="cursor-pointer"
           >
             <img
-              src="public/images/logo2.png"
+              src={Logo}
               alt="logo"
               className="w-14 rounded-full"
             />

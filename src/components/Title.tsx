@@ -26,15 +26,15 @@ const Title = ({ title1, title2, description }: any) => {
   return (
     <div className="text-center mb-10" id="title">
       {title1 && (
-        <p className="mb-3 uppercase sm:text-sm text-xs tracking-[0.4em] text-violet-300/75">
+        <p className="mb-3 uppercase md:text-sm text-xs tracking-[0.4em] text-violet-300/75">
           {title1}
         </p>
       )}
-      <h2 className="mb-5 text-2xl sm:text-4xl font-bold text-white">
+      <h2 className="mb-5 text-2xl md:text-4xl font-bold text-white">
         {title2}
       </h2>
       {description && (
-        <p className="mx-auto max-w-2xl sm:text-sm text-xs leading-relaxed text-slate-300">
+        <p className="mx-auto max-w-2xl md:text-sm text-xs leading-relaxed text-slate-300 md:w-3/4 sm:w-3/4 w-full">
           {description}
         </p>
       )}

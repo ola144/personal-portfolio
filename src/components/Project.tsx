@@ -66,10 +66,10 @@ const Project = () => {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold text-white">
+                  <h3 className="md:text-lg text-sm font-semibold text-white">
                     {project.title}
                   </h3>
-                  <p className="mt-4 text-slate-300 leading-relaxed h-40 text-sm">
+                  <p className="mt-4 text-slate-300 leading-relaxed h-40 md:text-sm text-xs text-justify">
                     {project.description}
                   </p>
                   <a

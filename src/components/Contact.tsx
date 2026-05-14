@@ -105,7 +105,7 @@ const Contact = () => {
 
         <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="contact-card p-8 text-slate-100">
-            <h3 className="sm:text-2xl text-xl font-semibold text-white">
+            <h3 className="md:text-2xl text-xl font-semibold text-white">
               Contact information
             </h3>
             <p className="mt-3 text-slate-400 text-sm">

@@ -98,7 +98,7 @@ const Skills = () => {
         </div> */}
         <div className="relative">
           <img
-            src="public/images/portfolio-skill.png"
+            src="/images/portfolio-skill.png"
             alt="skills"
             className="w-full  mx-auto"
           />

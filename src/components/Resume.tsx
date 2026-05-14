@@ -42,14 +42,14 @@ const Resume = () => {
         <div className="grid gap-6 lg:grid-cols-2">
           {experience.map((item, index) => (
             <div key={index} className="experience-card p-8">
-              <span className="sm:text-sm text-xs uppercase tracking-[0.35em] text-violet-300/70">
+              <span className="md:text-sm text-xs uppercase tracking-[0.35em] text-violet-300/70">
                 {item.period}
               </span>
-              <h3 className="mt-4 sm:text-2xl text-xl font-semibold text-white">
+              <h3 className="mt-4 md:text-2xl text-xl font-semibold text-white">
                 {item.role}
               </h3>
               <p className="mt-1 text-slate-400 text-sm">{item.company}</p>
-              <p className="mt-4 leading-relaxed text-slate-300 sm:text-sm text-xs text-justify">
+              <p className="mt-4 leading-relaxed text-slate-300 md:text-sm text-xs text-justify">
                 {item.description}
               </p>
             </div>
@@ -59,7 +59,7 @@ const Resume = () => {
         <div className="mt-14 grid gap-6 lg:grid-cols-2">
           {education.map((item, index) => (
             <div key={index} className="experience-card p-8">
-              <h3 className="sm:text-2xl text-xl font-semibold text-white">
+              <h3 className="md:text-2xl text-xl font-semibold text-white">
                 {item.degree}
               </h3>
               <p className="mt-2 text-slate-300 text-sm">{item.school}</p>
