@@ -92,17 +92,12 @@ const Skills = () => {
         </Swiper>
       </div>
 
-      <div className="flex items-center justify-center lg:w-1/2 md:w-3/4 mx-auto my-12 skill-card rounded-xl pt-5 relative">
-        {/* <div className="absolute w-1/2 bottom-10 translate-x-1/2 -translate-y-[30px] right-[53%] z-[500] ">
-          <img src="public/images/logo2.png" alt="logo" className="w-14  mx-auto rounded-full" />
-        </div> */}
-        <div className="relative">
+      <div className="flex items-center justify-center lg:w-1/2 md:w-3/4 mx-auto my-12 rounded-xl pt-5 relative">
           <img
             src="/images/portfolio-skill.png"
             alt="skills"
-            className="w-full  mx-auto"
+            className="w-full mx-auto"
           />
-        </div>
       </div>
     </section>
   );
