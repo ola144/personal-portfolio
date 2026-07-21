@@ -1,5 +1,5 @@
 import Title from "./Title";
-import ResumeDoc from "../assets/documents/AGBAJE OLADIMEJI GBOLAHAN CV.pdf";
+import ResumeDoc from "../assets/documents/AGBAJE OLADIMEJI GBOLAHAN.pdf";
 
 const Resume = () => {
   const experience = [

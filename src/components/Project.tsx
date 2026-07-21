@@ -47,11 +47,9 @@ const Project = () => {
             1024: { slidesPerView: 3 },
           }}
         >
-          {projects.slice(0, 5).map((project, index) => (
+          {projects.map((project, index) => (
             <SwiperSlide key={index}>
-              <div
-                className="project-card overflow-hidden rounded-[2rem]"
-              >
+              <div className="project-card overflow-hidden rounded-[2rem]">
                 <div className="relative h-56 overflow-hidden bg-slate-900">
                   <div className="absolute inset-0 flex items-center justify-center opacity-80 ">
                     <img
@@ -60,9 +58,9 @@ const Project = () => {
                       className="w-full object-cover"
                     />
 
-                    <span className="text-xs uppercase tracking-[0.35em] bg-violet-500 text-white px-2 rounded-b-xl pb-1 font-bold absolute right-0 pr-3 top-0">
+                    {/* <span className="text-xs uppercase tracking-[0.35em] bg-violet-500 text-white px-2 rounded-b-xl pb-1 font-bold absolute right-0 pr-3 top-0">
                       Featured
-                    </span>
+                    </span> */}
                   </div>
                 </div>
                 <div className="p-6">

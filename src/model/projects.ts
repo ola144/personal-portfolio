@@ -13,7 +13,7 @@ export const projectList: IProject[] = [
       "Modern ecommerce platform built with Angular and TailwindCSS, powered by Appwrite for authentication, database, and storage. Includes user shopping experience and a fully functional admin dashboard.",
     type: "exlusive",
     liveUrl: "https://exclusive-swart-alpha.vercel.app/",
-    image: "/images/exclusive-landing.JPG"
+    image: "/images/exclusive.png",
   },
   {
     title: "Task Management App",
@@ -21,7 +21,7 @@ export const projectList: IProject[] = [
       "Responsive task management application built with Angular and TailwindCSS, featuring task creation, editing, assignment, and status tracking (To-Do, In Progress, Completed) with Firebase persistence.",
     type: "task",
     liveUrl: "https://task-app-three-pi.vercel.app/",
-    image: "/images/task-app.JPG"
+    image: "/images/task-app.JPG",
   },
   {
     title: "Online Shop Web App",
@@ -29,7 +29,7 @@ export const projectList: IProject[] = [
       "Fully responsive e-commerce web app built with ReactJS and TailwindCSS, featuring product listings, category filtering, cart management, and a seamless checkout experience. Built with reusable components and optimized for desktop and mobile.",
     type: "shop",
     liveUrl: "https://online-shop-ten-hazel.vercel.app/",
-    image: "/images/online-shop.JPG"
+    image: "/images/online-shop.png",
   },
   {
     title: "The Mirror (Mentorship Platform)",
@@ -37,7 +37,7 @@ export const projectList: IProject[] = [
       "A full-featured mentorship web application developed with Angular and Tailwind CSS, consuming a RESTful API for authentication, session management, and user data. Emphasis was placed on component reusability, clean architecture, and responsive UI design.",
     type: "mirror",
     liveUrl: "https://themirrorllc.com/home",
-    image: "/images/mirror-project.JPG"
+    image: "/images/mirror-project.JPG",
   },
   {
     title: "Car Booking Web App",
@@ -45,6 +45,14 @@ export const projectList: IProject[] = [
       "A modern car booking web application built with React, Redux, TailwindCSS, and Firebase, featuring real-time bookings, secure authentication, and a responsive user experience.",
     type: "marent",
     liveUrl: "https://marent.vercel.app/",
-    image: "/images/busBooking-app.JPG"
+    image: "/images/car-booking.png",
+  },
+  {
+    title: "Blue Chat Web Applicaiton",
+    description:
+      "A MERN stack chat application built with Socket.IO for real-time messaging, secure authentication, online status, and responsive design.",
+    type: "chat",
+    liveUrl: "https://blue-chat-ui.vercel.app/",
+    image: "/images/chat.png",
   },
 ];

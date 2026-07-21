@@ -7,15 +7,15 @@ export interface ISkills {
 export const skillList: ISkills[] = [
   {
     icon: "fa fa-th-large",
-    title: "frontend web development",
+    title: "Full Stack Development",
     description:
-      "Creating beautiful and functional web experiences is my forte. Using the latest technologies and best practices, I design and build websites that captivate and engage users.",
+      "Building scalable, high-performance web applications using the MERN stack. From intuitive frontend interfaces to secure backend APIs and databases, I deliver complete end-to-end solutions.",
   },
   {
     icon: "fa fa-stack-overflow",
     title: "technology stack",
     description:
-      "I'm well-versed in the industry's most popular frontend technologies, including HTML5, CSS3, JavaScript, and frameworks like Angular and React.",
+      "I'm well-versed in the industry's most popular frontend technologies, including HTML5, CSS3, JavaScript, NodeJs and frameworks like Angular, React, ExpressJS and MongoDB",
   },
   {
     icon: "fa fa-flash",

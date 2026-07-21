@@ -143,7 +143,7 @@ const Contact = () => {
                   <p className="sm:text-sm text-xs uppercase tracking-[0.3em] text-violet-300/75">
                     Location
                   </p>
-                  <p className="text-sm">Igando, Lagos State, Nigeria</p>
+                  <p className="text-sm">Lagos State, Nigeria</p>
                 </div>
               </div>
             </div>
