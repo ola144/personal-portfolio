@@ -107,10 +107,10 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="rounded-[2rem] border border-white/10 bg-white/5 md:p-6 p-3 shadow-[0_35px_120px_rgba(31,41,55,0.32)] backdrop-blur-2xl">
+          <div className="rounded-[2rem] border border-white/10 bg-white/5 md:p-4 p-3 shadow-[0_35px_120px_rgba(31,41,55,0.32)] backdrop-blur-2xl">
             <div className="relative overflow-hidden rounded-[1.8rem] border border-white/10 bg-slate-950/80 md:p-6 p-3">
               <img
-                src="/images/heroImg.png"
+                src="/images/portfolio-profile.png"
                 alt="Hero"
                 id="hero-img"
                 className="h-full w-full rounded-[1.4rem] object-cover"
