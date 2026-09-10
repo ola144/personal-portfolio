@@ -6,7 +6,7 @@ const Resume = () => {
     {
       role: "Frontend Developer",
       company: "The Mirror LLC",
-      period: "August, 2025 - Till Date",
+      period: "August, 2025 - January, 2026",
       description:
         "Collaborated with developers to implement UI features and optimized website performance using Angular, TailwindCSS, and REST APIs.",
     },
