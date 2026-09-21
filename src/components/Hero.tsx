@@ -84,7 +84,7 @@ const Hero = () => {
                 <p className="text-sm uppercase tracking-[0.3em] text-slate-400">
                   Experience
                 </p>
-                <p className="mt-3 md:text-3xl text-xl font-semibold text-white">
+                <p className="mt-3 md:text-xl text-lg font-semibold text-white">
                   2 yrs
                 </p>
               </div>
@@ -92,7 +92,7 @@ const Hero = () => {
                 <p className="text-sm uppercase tracking-[0.3em] text-slate-400">
                   Projects
                 </p>
-                <p className="mt-3 md:text-3xl text-xl font-semibold text-white">
+                <p className="mt-3 md:text-xl text-lg font-semibold text-white">
                   5+
                 </p>
               </div>
@@ -100,7 +100,7 @@ const Hero = () => {
                 <p className="text-sm uppercase tracking-[0.3em] text-slate-400">
                   Focus
                 </p>
-                <p className="mt-3 md:text-3xl text-xl font-semibold text-white">
+                <p className="mt-3 md:text-xl text-lg font-semibold text-white">
                   Full Stack
                 </p>
               </div>
