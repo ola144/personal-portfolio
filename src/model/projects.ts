@@ -16,6 +16,14 @@ export const projectList: IProject[] = [
     image: "/images/exclusive.png",
   },
   {
+    title: "Pizza Ordering Application",
+    description:
+      "Responsive pizza ordering web application built with React, TypeScript, and TailwindCSS, featuring user authentication, custom pizza building, inventory management, Razorpay test payments, order tracking, and real-time order status updates using Socket.IO.",
+    type: "task",
+    liveUrl: "https://pizza-hub-kappa.vercel.app/",
+    image: "/images/pizzahub.png",
+  },
+  {
     title: "Task Management App",
     description:
       "Responsive task management application built with Angular and TailwindCSS, featuring task creation, editing, assignment, and status tracking (To-Do, In Progress, Completed) with Firebase persistence.",
