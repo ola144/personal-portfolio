@@ -165,14 +165,14 @@ const Contact = () => {
               >
                 <i className="fa fa-github" />
               </a>
-              <a
+              {/* <a
                 href="https://www.instagram.com/gbolahanagbaje?igsh=YzljYTk1ODg3Zg=="
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-white transition hover:bg-violet-500"
               >
                 <i className="fa fa-instagram" />
-              </a>
+              </a> */}
             </div>
           </div>
 
