@@ -28,7 +28,7 @@ export const projectList: IProject[] = [
     description:
       "A MEAN stack real estate web application built with Angular, TypeScript, and TailwindCSS, featuring user authentication, public property discovery, customer booking workflows, role-based dashboards, and responsive dark-mode.",
     type: "task",
-    liveUrl: "https://task-app-three-pi.vercel.app/",
+    liveUrl: "https://realestateclientapplication.vercel.app/",
     image: "/images/real-estate.png",
   },
   {
