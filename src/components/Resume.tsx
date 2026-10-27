@@ -1,12 +1,12 @@
 import Title from "./Title";
-import ResumeDoc from "../assets/documents/AGBAJE OLADIMEJI GBOLAHAN.pdf";
+import ResumeDoc from "../assets/documents/Agbaje Oladimeji.pdf";
 
 const Resume = () => {
   const experience = [
     {
       role: "Frontend Developer",
       company: "The Mirror LLC",
-      period: "August, 2025 - January, 2026",
+      period: "August, 2025 - June, 2026",
       description:
         "Collaborated with developers to implement UI features and optimized website performance using Angular, TailwindCSS, and REST APIs.",
     },
@@ -16,6 +16,13 @@ const Resume = () => {
       period: "September, 2025 - December, 2025",
       description:
         "Completed a training-based internship program focused on frontend development, where I received mentorship, practiced building UI components, and worked on supervised mini-projects to strengthen real-world skills.",
+    },
+    {
+      role: "Software Engineer",
+      company: "Freelance",
+      period: "July, 2026 till now",
+      description:
+        "Worked on developing and maintaining full-stack web applications, building responsive user interfaces, designing RESTful APIs, managing databases, implementing secure authentication, and integrating frontend and backend services using modern web technologies.",
     },
   ];
 
@@ -28,7 +35,7 @@ const Resume = () => {
   ];
 
   const description =
-    "Passionate Frontend Developer focused on building dynamic and user-friendly applications with Angular and React. Constantly improving through modern development practices and real-world project implementation.";
+    "Passionate Software Engineer focused on building scalable, responsive, and user-friendly web applications across the frontend and backend. Experienced with Angular, React, Node.js, Express.js, and MongoDB, with a strong commitment to writing clean, maintainable code and continuously improving through modern development practices and real-world projects.";
 
   return (
     <section className="parent parent2 py-20">
