@@ -24,6 +24,14 @@ export const projectList: IProject[] = [
     image: "/images/pizzahub.png",
   },
   {
+    title: "E-Learning Platform",
+    description:
+      "A MERN stack e-learning platform designed to help schools manage students, teachers, lessons, assessments, academic progress, and payments through dedicated dashboards and role-based access.",
+    type: "task",
+    liveUrl: "https://openstudyacademye-leaningplatform.vercel.app/",
+    image: "/images/openstudy.png",
+  },
+  {
     title: "Real Estate Application",
     description:
       "A MEAN stack real estate web application built with Angular, TypeScript, and TailwindCSS, featuring user authentication, public property discovery, customer booking workflows, role-based dashboards, and responsive dark-mode.",
